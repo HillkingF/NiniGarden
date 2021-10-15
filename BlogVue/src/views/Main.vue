@@ -14,11 +14,16 @@
     </el-container>
   </el-container>
 
+  <!--接下来将view子目录中的两个页面添加到这里,进行路由嵌套处理-->
+
+
 </template>
 
+
 <script>
+
 export default {
-  name: "MyIfnfo",
+  name: "Main",
   data() {
     return {
       activeIndex: '1',
@@ -95,4 +100,5 @@ body > .el-container {
   text-align: right;
   float: right;
 }
+
 </style>

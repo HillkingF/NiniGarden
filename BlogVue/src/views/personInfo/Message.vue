@@ -1,5 +1,5 @@
 <template>
-  <h1>个人信息第二页</h1>
+  <h1 class="h1">留言板</h1>
 </template>
 
 <script>
@@ -9,5 +9,8 @@ export default {
 </script>
 
 <style scoped>
+.h1{
+  color: darkorange;
+}
 
 </style>
