@@ -1,22 +1,16 @@
 <template>
-  <el-container>
-    <el-header class="header1">
-      <HeadNavBar></HeadNavBar>
-    </el-header>
-    <el-container>
-      <el-main></el-main>
-    </el-container>
-  </el-container>
-
+  <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+        <i class="el-icon-sunny"></i>
+        <el-menu-item class="header_menu_item" index="1" v-on:click="knoSort()">知识分类</el-menu-item>
+        <el-menu-item class="header_menu_item" index="2" v-on:click="playmic()">娱乐影音</el-menu-item>
+        <el-menu-item class="header_menu_item" index="3" v-on:click="myssage()">留言板</el-menu-item>
+        <el-menu-item class="header_menu_item" index="4" v-on:click="person()">个人</el-menu-item>
+      </el-menu>
 </template>
 
 <script>
-import HeadNavBar from "@/views/NavigationBar/HeadNavBar"
-
-
 export default {
-  name: "MyIfnfo",
-  components: {HeadNavBar},
+  name: "HeadNavBar",
   data() {
     return {
       activeIndex: '1',
@@ -93,4 +87,5 @@ body > .el-container {
   text-align: right;
   float: right;
 }
+
 </style>
