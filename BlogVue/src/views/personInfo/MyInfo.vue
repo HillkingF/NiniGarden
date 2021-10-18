@@ -1,12 +1,5 @@
 <template>
-  <el-container>
-    <el-header class="header1">
-      <HeadNavBar></HeadNavBar>
-    </el-header>
-    <el-container>
-      <el-main></el-main>
-    </el-container>
-  </el-container>
+  <h1>个人页面</h1>
 
 </template>
 
@@ -17,33 +10,7 @@ import HeadNavBar from "@/views/NavigationBar/HeadNavBar"
 export default {
   name: "MyIfnfo",
   components: {HeadNavBar},
-  data() {
-    return {
-      activeIndex: '1',
-      activeIndex2: '1'
-    };
-  },
   methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    knoSort(){
-      console.log("知识分类")
-      this.$router.push("/main/myinfo");
-    },
-    playmic(){
-      console.log("影音娱乐")
-      this.$router.push("/main/playmic");
-    },
-    myssage(){
-      console.log("留言板")
-      this.$router.push("/main/myssage");
-    },
-    person(){
-      console.log("个人信息")
-      this.$router.push("/main/person");
-    },
-
   }
 }
 </script>
@@ -82,7 +49,7 @@ body > .el-container {
   height: 30px;
 }
 .el-menu-demo{
-  display: inline-block;
+  display: inline;
   text-align: left;
   position: fixed;
   border-bottom: 0px;

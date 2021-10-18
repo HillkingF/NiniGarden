@@ -1,7 +1,8 @@
 <template>
   <!--这个页面用于在页面的主体部分异步显示-->
+
   <div class="demo-image">
-    <h1>页面主体</h1>
+
     <div class="block" v-for="fit in fits" :key="fit">
       <span class="demonstration">{{ fit }}</span>
       <el-image
@@ -28,7 +29,7 @@ export default {
 <style scoped>
 .h1{
   color: darkorange;
-
 }
+
 
 </style>

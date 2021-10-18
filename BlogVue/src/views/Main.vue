@@ -30,5 +30,9 @@ export default {
 </script>
 
 <style scoped>
+.header1{
+  left: 0px;
+  right: 0px;
+}
 
 </style>

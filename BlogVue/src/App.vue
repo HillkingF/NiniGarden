@@ -22,7 +22,7 @@ html,body{
   padding:0;
 }
 #app {
-  /*background: url("../static/img/bgMain.jpg");*/
+  background: url("../static/img/bgMain.jpg");
   background-size: 100% 100%;
   height: 100%;
   position: fixed;

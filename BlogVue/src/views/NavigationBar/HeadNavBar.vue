@@ -1,11 +1,24 @@
 <template>
-  <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-        <i class="el-icon-sunny"></i>
-        <el-menu-item class="header_menu_item" index="1" v-on:click="knoSort()">知识分类</el-menu-item>
-        <el-menu-item class="header_menu_item" index="2" v-on:click="playmic()">娱乐影音</el-menu-item>
-        <el-menu-item class="header_menu_item" index="3" v-on:click="myssage()">留言板</el-menu-item>
-        <el-menu-item class="header_menu_item" index="4" v-on:click="person()">个人</el-menu-item>
-      </el-menu>
+
+    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+      <el-avatar class="avatar" shape="square" :size="35"
+                 src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png">Nini</el-avatar>
+      <router-link to="/pagemain">
+        <el-menu-item class="header_menu_item" index="1" v-on:click="pagemain()">主页</el-menu-item>
+      </router-link>
+      <router-link to="/knowledge">
+        <el-menu-item class="header_menu_item" index="2" v-on:click="knoSort()">知识分类</el-menu-item>
+      </router-link>
+      <router-link to="/amusement">
+        <el-menu-item class="header_menu_item" index="3" v-on:click="playmic()">娱乐影音</el-menu-item>
+      </router-link>
+      <router-link to="/message">
+        <el-menu-item class="header_menu_item" index="4" v-on:click="myssage()">留言板</el-menu-item>
+      </router-link>
+      <router-link to="/myinfo">
+        <el-menu-item class="header_menu_item" index="5" v-on:click="person()">个人</el-menu-item>
+      </router-link>
+    </el-menu>
 </template>
 
 <script>
@@ -23,19 +36,18 @@ export default {
     },
     knoSort(){
       console.log("知识分类")
-      this.$router.push("/main/myinfo");
+      //this.$router.push("/main/knoSort");
     },
     playmic(){
       console.log("影音娱乐")
-      this.$router.push("/main/playmic");
+      //this.$router.push("/main/playmic");
     },
     myssage(){
       console.log("留言板")
-      this.$router.push("/main/myssage");
+      //this.$router.push("/main/myssage");
     },
     person(){
       console.log("个人信息")
-      this.$router.push("/main/person");
     },
 
   }
@@ -43,49 +55,31 @@ export default {
 </script>
 
 <style scoped>
-.el-header, .el-footer {
-  background-color: #B3C0D1;
-  color: #333;
-  text-align: center;
-  line-height: 60px;
-  opacity: 0.8;
-}
-.el-main {
-  background-color: #E9EEF3;
-  color: #333;
-  text-align: center;
-  line-height: 100;
-  /*height: 100%;*/
-  opacity: 0;
-}
-
-body > .el-container {
-  margin-bottom: 30px;
-}
-
-/*.el-container:nth-child(5) .el-aside,*/
-/*.el-container:nth-child(6) .el-aside {*/
-/*  line-height: 260px;*/
-/*}*/
-
-/*.el-container:nth-child(7) .el-aside {*/
-/*  line-height: 320px;*/
-/*}*/
-.header1{
-  display: inline;
-  height: 30px;
-}
 .el-menu-demo{
+  height: 50px;
   display: inline-block;
-  text-align: left;
   position: fixed;
-  border-bottom: 0px;
+  border-bottom: 10px;
+  background-color: black;
   left: 0px;
   right: 0px;
 }
-.header_menu_item{
-  text-align: right;
-  float: right;
+
+.avatar{
+  margin-left: 30px;
+  margin-right: 100px;
+  margin-bottom: 1px;
 }
+
+.header_menu_item{
+  height: 50px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: 10px;
+  font-weight: bold;
+  font-size: medium;
+  color: floralwhite;
+}
+
 
 </style>
