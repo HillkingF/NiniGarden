@@ -24,9 +24,11 @@ html,body{
 #app {
   background: url("../static/img/bgMain.jpg");
   background-size: 100% 100%;
-  height: 100%;
-  position: fixed;
+  height: 100vh;
   width: 100%;
+  /*position: fixed;*/
+  overflow: hidden;
+  position: relative;
   /*font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
   /*-webkit-font-smoothing: antialiased;*/
   /*-moz-osx-font-smoothing: grayscale;*/

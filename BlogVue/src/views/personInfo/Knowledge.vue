@@ -11,7 +11,9 @@
             class="el-menu-vertical-demo"
             mode="vertical"
             @open="handleOpen"
-            @close="handleClose">
+            @close="handleClose"
+
+          >
 
             <el-menu-item index="1" class="el-submenu-item">
               <i class="el-icon-location"></i>
@@ -45,6 +47,7 @@
     </el-aside>
     <div>nnn</div>
     <el-main>
+      <div class="table-div">
       <!--在这里增加列表或者目录,显示不同分类下面的文章列表-->
       <el-table
         :data="tableData"
@@ -53,7 +56,8 @@
         <el-table-column
           prop="date"
           label="更新日期"
-          width="180">
+          width="180"
+          height="40">
         </el-table-column>
         <el-table-column
           prop="name"
@@ -65,6 +69,7 @@
           label="作者">
         </el-table-column>
       </el-table>
+      </div>
 
     </el-main>
   </el-container>
@@ -84,6 +89,46 @@ export default {
         date: '2016-05-04',
         name: '王小虎',
         address: '上海市普陀区金沙江路 1517 弄'
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1519 弄'
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1519 弄'
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1519 弄'
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1519 弄'
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1519 弄'
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1519 弄'
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1519 弄'
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1519 弄'
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1519 弄'
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1519 弄'
       }, {
         date: '2016-05-01',
         name: '王小虎',
@@ -154,15 +199,19 @@ body > .el-container {
   color: darkorange;
 }
 .el-submenu-item{
-  float: left;
-  /*width: 100%;*/
+  text-align: left;  /*每一行的文字靠左对齐*/
   right: 0px;
 }
 /*===============页面主体的表格=======*/
-.el-table{
-
+.table-div{
+  max-height: 350px;
 }
-.el-table__header-wrapper{
-  height: 40px;
+.el-table{
+  line-height: 15px;
+  max-height: 350px;
+  /*下面的两个使表格无缝滚动*/
+  overflow-y: scroll;
+  position: initial;
+  font-size: x-small;
 }
 </style>

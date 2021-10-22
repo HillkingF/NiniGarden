@@ -31,6 +31,7 @@ export default {
 
 <style scoped>
 .header1{
+  height: 40px;
   left: 0px;
   right: 0px;
 }

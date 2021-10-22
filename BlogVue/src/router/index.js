@@ -22,7 +22,7 @@ export default new Router({
       children: [
         // 页面主体部分的异步请求
         {path: '/pagemain', component: PageMain},
-        {path: '/knowledge', component: Knowledge},
+        {path: '/knowledge',component: Knowledge},
         {path: '/amusement', component: Amusement},
         {path: '/myinfo', component: Myinfo},
         {path: '/message', component: Message},
