@@ -4,12 +4,13 @@
       <HeadNavBar></HeadNavBar>
       <!--<router-view></router-view>-->
     </el-header>
-    <el-container>
-      <el-main>
+
+    <!--<el-container>-->
+      <el-main class="main1">
         <!--router-view用于异步显示页面的主体部分-->
         <router-view></router-view>
       </el-main>
-    </el-container>
+    <!--</el-container>-->
   </el-container>
 
   <!--接下来将view子目录中的两个页面添加到这里,进行路由嵌套处理-->
@@ -35,5 +36,8 @@ export default {
   left: 0px;
   right: 0px;
 }
-
+.main1{
+  position: relative;
+  height: 100%;
+}
 </style>
