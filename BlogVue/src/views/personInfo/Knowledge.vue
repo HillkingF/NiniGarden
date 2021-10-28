@@ -1,78 +1,89 @@
 <template>
-  <el-container class="el-con1">
-    <el-aside width="200px" class="el-aside1">
-      <!--左侧知识分类导航栏-->
-      <el-row class="tac">
-        <el-col :span="24">
-          <h1 class="aside-title">知识类别</h1>
+  <div class="div-wholepage">
+    <div class="indiv">
+      <el-container>
+        <el-aside width="200px" class="left-aside">
+              <!--左侧知识分类导航栏-->
+              <el-row class="left-guide">
+                <el-col :span="24">
+                  <h1 class="aside-title">知识类别</h1>
 
-          <el-menu
-            default-active="2"
-            class="el-menu-vertical-demo"
-            mode="vertical"
-            @open="handleOpen"
-            @close="handleClose"
-          >
+                  <el-menu
+                    default-active="2"
+                    class="el-menu-vertical-demo"
+                    mode="vertical"
+                    @open="handleOpen"
+                    @close="handleClose"
+                  >
 
-            <el-menu-item index="1" class="el-submenu-item">
-              <i class="el-icon-location"></i>
-              <span>图像处理</span>
-            </el-menu-item>
-            <el-menu-item index="2" class="el-submenu-item">
-              <i class="el-icon-menu"></i>
-              <span slot="title">深度学习</span>
-            </el-menu-item>
+                    <el-menu-item index="1" class="el-submenu-item">
+                      <i class="el-icon-location"></i>
+                      <span>图像处理</span>
+                    </el-menu-item>
+                    <el-menu-item index="2" class="el-submenu-item">
+                      <i class="el-icon-menu"></i>
+                      <span slot="title">深度学习</span>
+                    </el-menu-item>
 
-            <!--disabled 设置是否可见-->
-            <el-menu-item index="3" class="el-submenu-item">
-              <i class="el-icon-document"></i>
-              <span slot="title">计算机视觉</span>
-            </el-menu-item>
-            <el-menu-item index="4" class="el-submenu-item">
-              <i class="el-icon-setting"></i>
-              <span slot="title">Java</span>
-            </el-menu-item>
-            <el-menu-item index="5" class="el-submenu-item">
-              <i class="el-icon-setting"></i>
-              <span slot="title">Python</span>
-            </el-menu-item>
-            <el-menu-item index="6" class="el-submenu-item">
-              <i class="el-icon-setting"></i>
-              <span slot="title">框架</span>
-            </el-menu-item>
-          </el-menu>
-        </el-col>
-      </el-row>
-    </el-aside>
-    <!--<div>nnn</div>-->
-    <!--<el-main>-->
-    <!--  <div class="table-div">-->
-    <!--  &lt;!&ndash;在这里增加列表或者目录,显示不同分类下面的文章列表&ndash;&gt;-->
-    <!--  <el-table-->
-    <!--    :data="tableData"-->
-    <!--    style="width: 100%"-->
-    <!--    class="el-table">-->
-    <!--    <el-table-column-->
-    <!--      prop="date"-->
-    <!--      label="更新日期"-->
-    <!--      width="180"-->
-    <!--      height="40">-->
-    <!--    </el-table-column>-->
-    <!--    <el-table-column-->
-    <!--      prop="name"-->
-    <!--      label="名称"-->
-    <!--      width="180">-->
-    <!--    </el-table-column>-->
-    <!--    <el-table-column-->
-    <!--      prop="address"-->
-    <!--      label="作者">-->
-    <!--    </el-table-column>-->
-    <!--  </el-table>-->
-    <!--  </div>-->
+                    <!--disabled 设置是否可见-->
+                    <el-menu-item index="3" class="el-submenu-item">
+                      <i class="el-icon-document"></i>
+                      <span slot="title">计算机视觉</span>
+                    </el-menu-item>
+                    <el-menu-item index="4" class="el-submenu-item">
+                      <i class="el-icon-setting"></i>
+                      <span slot="title">Java</span>
+                    </el-menu-item>
+                    <el-menu-item index="5" class="el-submenu-item">
+                      <i class="el-icon-setting"></i>
+                      <span slot="title">Python</span>
+                    </el-menu-item>
+                    <el-menu-item index="6" class="el-submenu-item">
+                      <i class="el-icon-setting"></i>
+                      <span slot="title">框架</span>
+                    </el-menu-item>
+                  </el-menu>
+                </el-col>
+              </el-row>
+            </el-aside>
+        <el-main class="right-main">
+          <!--right===========-->
+          <div class="div-right" >
 
-    <!--</el-main>-->
-  </el-container>
+                <!--在这里增加列表或者目录,显示不同分类下面的文章列表-->
+                <el-table
+                  :data="tableData"
+                  class="el-table"
+                  height="700px"
+                  >
+                  <el-table-column
+                    class="table-cell"
+                    prop="date"
+                    label="更新日期"
+                    width="180"
+                    height="10">
+                  </el-table-column>
+                  <el-table-column
+                    class="table-cell"
+                    prop="name"
+                    label="名称"
+                    width="180"
+                    height="30">
+                  </el-table-column>
+                  <el-table-column
+                    class="table-cell"
+                    prop="address"
+                    label="作者"
+                    height="30">
+                  </el-table-column>
+                </el-table>
 
+          </div>
+        </el-main>
+      </el-container>
+
+    </div>
+  </div>
 </template>
 
 <script>
@@ -152,19 +163,37 @@ export default {
 </script>
 
 <style scoped>
-.el-con1{
-  position: initial;
+/*=================外层的一些框架================*/
+.div-wholepage{
+}
+.indiv{
+  position: fixed;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  top: 50px;
+  background-color: aliceblue;
+}
+.left-aside{
+  margin: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 0 10px 12px 0 rgba(0, 0, 0, 0.1)
+  /*background-color: #B3C0D1;*/
+}
+.right-main{
+  right: 10px;
+  /*margin: 10px;*/
+  /*margin-top: 20px;*/
+  /*width: 100%;*/
+  background-color: snow;
 }
 
-.el-aside1 {
-  background-color: #D3DCE6;
-  color: #333;
+/*=================左侧================*/
+.left-guide{
+  position: initial;
   text-align: center;
-  line-height: 20px;
-  position: fixed;
-}
-.tac{
-  position: inherit;
+  background: lightblue;
 }
 .aside-title{
   height: 1px;
@@ -179,56 +208,22 @@ export default {
 }
 .el-submenu-item{
   text-align: left;  /*每一行的文字靠左对齐*/
-  right: 0px;
   position: inherit;
 }
 
-/*.h1{*/
-/*  color: darkorange;*/
-/*}*/
-/*.el-header, .el-footer {*/
-/*  background-color: #B3C0D1;*/
-/*  color: #333;*/
-/*  text-align: center;*/
-/*  line-height: 60px;*/
-/*}*/
+/*=================右侧================*/
+.div-right{
+  background: lightcoral;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 10px 12px 0 rgba(0, 0, 0, 0.1)
+}
+.el-table{
+
+}
+.table-cell {
+}
 
 
 
-/*.el-main {*/
-/*  background-color: #E9EEF3;*/
-/*  color: #333;*/
-/*  text-align: center;*/
-/*  line-height: 160px;*/
-/*}*/
-
-/*body > .el-container {*/
-/*  position: initial;*/
-/*  !*margin-bottom: 40px;*!*/
-/*}*/
-
-/*.el-container:nth-child(5) .el-aside,*/
-/*.el-container:nth-child(6) .el-aside {*/
-/*  line-height: 260px;*/
-/*}*/
-
-/*.el-container:nth-child(7) .el-aside {*/
-/*  line-height: 320px;*/
-/*}*/
-
-/*==============左侧==============*/
-
-
-/*!*===============页面主体的表格=======*!*/
-/*.table-div{*/
-/*  max-height: 350px;*/
-/*}*/
-/*.el-table{*/
-/*  line-height: 15px;*/
-/*  max-height: 350px;*/
-/*  !*下面的两个使表格无缝滚动*!*/
-/*  overflow-y: scroll;*/
-/*  position: initial;*/
-/*  font-size: x-small;*/
-/*}*/
 </style>
