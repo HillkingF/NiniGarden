@@ -1,6 +1,6 @@
 <template>
-  <el-container>
-    <el-aside width="200px">
+  <el-container class="el-con1">
+    <el-aside width="200px" class="el-aside1">
       <!--左侧知识分类导航栏-->
       <el-row class="tac">
         <el-col :span="24">
@@ -12,7 +12,6 @@
             mode="vertical"
             @open="handleOpen"
             @close="handleClose"
-
           >
 
             <el-menu-item index="1" class="el-submenu-item">
@@ -45,33 +44,33 @@
         </el-col>
       </el-row>
     </el-aside>
-    <div>nnn</div>
-    <el-main>
-      <div class="table-div">
-      <!--在这里增加列表或者目录,显示不同分类下面的文章列表-->
-      <el-table
-        :data="tableData"
-        style="width: 100%"
-        class="el-table">
-        <el-table-column
-          prop="date"
-          label="更新日期"
-          width="180"
-          height="40">
-        </el-table-column>
-        <el-table-column
-          prop="name"
-          label="名称"
-          width="180">
-        </el-table-column>
-        <el-table-column
-          prop="address"
-          label="作者">
-        </el-table-column>
-      </el-table>
-      </div>
+    <!--<div>nnn</div>-->
+    <!--<el-main>-->
+    <!--  <div class="table-div">-->
+    <!--  &lt;!&ndash;在这里增加列表或者目录,显示不同分类下面的文章列表&ndash;&gt;-->
+    <!--  <el-table-->
+    <!--    :data="tableData"-->
+    <!--    style="width: 100%"-->
+    <!--    class="el-table">-->
+    <!--    <el-table-column-->
+    <!--      prop="date"-->
+    <!--      label="更新日期"-->
+    <!--      width="180"-->
+    <!--      height="40">-->
+    <!--    </el-table-column>-->
+    <!--    <el-table-column-->
+    <!--      prop="name"-->
+    <!--      label="名称"-->
+    <!--      width="180">-->
+    <!--    </el-table-column>-->
+    <!--    <el-table-column-->
+    <!--      prop="address"-->
+    <!--      label="作者">-->
+    <!--    </el-table-column>-->
+    <!--  </el-table>-->
+    <!--  </div>-->
 
-    </el-main>
+    <!--</el-main>-->
   </el-container>
 
 </template>
@@ -153,65 +152,83 @@ export default {
 </script>
 
 <style scoped>
-.h1{
-  color: darkorange;
-}
-.el-header, .el-footer {
-  background-color: #B3C0D1;
-  color: #333;
-  text-align: center;
-  line-height: 60px;
+.el-con1{
+  position: initial;
 }
 
-.el-aside {
+.el-aside1 {
   background-color: #D3DCE6;
   color: #333;
   text-align: center;
-  line-height: 200px;
+  line-height: 20px;
+  position: fixed;
 }
-
-.el-main {
-  background-color: #E9EEF3;
-  color: #333;
-  text-align: center;
-  line-height: 160px;
+.tac{
+  position: inherit;
 }
-
-body > .el-container {
-  margin-bottom: 40px;
-}
-
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
-  line-height: 260px;
-}
-
-.el-container:nth-child(7) .el-aside {
-  line-height: 320px;
-}
-
-/*==============左侧==============*/
 .aside-title{
   height: 1px;
   line-height: 40%;
   font-weight: bold;
   font-size: 20px;
   color: darkorange;
+  position: initial;
+}
+.el-menu-vertical-demo{
+  position: initial;
 }
 .el-submenu-item{
   text-align: left;  /*每一行的文字靠左对齐*/
   right: 0px;
+  position: inherit;
 }
-/*===============页面主体的表格=======*/
-.table-div{
-  max-height: 350px;
-}
-.el-table{
-  line-height: 15px;
-  max-height: 350px;
-  /*下面的两个使表格无缝滚动*/
-  overflow-y: scroll;
-  position: initial;
-  font-size: x-small;
-}
+
+/*.h1{*/
+/*  color: darkorange;*/
+/*}*/
+/*.el-header, .el-footer {*/
+/*  background-color: #B3C0D1;*/
+/*  color: #333;*/
+/*  text-align: center;*/
+/*  line-height: 60px;*/
+/*}*/
+
+
+
+/*.el-main {*/
+/*  background-color: #E9EEF3;*/
+/*  color: #333;*/
+/*  text-align: center;*/
+/*  line-height: 160px;*/
+/*}*/
+
+/*body > .el-container {*/
+/*  position: initial;*/
+/*  !*margin-bottom: 40px;*!*/
+/*}*/
+
+/*.el-container:nth-child(5) .el-aside,*/
+/*.el-container:nth-child(6) .el-aside {*/
+/*  line-height: 260px;*/
+/*}*/
+
+/*.el-container:nth-child(7) .el-aside {*/
+/*  line-height: 320px;*/
+/*}*/
+
+/*==============左侧==============*/
+
+
+/*!*===============页面主体的表格=======*!*/
+/*.table-div{*/
+/*  max-height: 350px;*/
+/*}*/
+/*.el-table{*/
+/*  line-height: 15px;*/
+/*  max-height: 350px;*/
+/*  !*下面的两个使表格无缝滚动*!*/
+/*  overflow-y: scroll;*/
+/*  position: initial;*/
+/*  font-size: x-small;*/
+/*}*/
 </style>

@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-header class="header1">
+    <el-header style="height:40px">
       <HeadNavBar></HeadNavBar>
       <!--<router-view></router-view>-->
     </el-header>
@@ -31,13 +31,15 @@ export default {
 </script>
 
 <style scoped>
-.header1{
-  height: 40px;
-  left: 0px;
-  right: 0px;
-}
+
 .main1{
-  position: relative;
-  height: 100%;
+  background: url("../../static/img/bgMain.jpg");
+  background-size: 100% 100%;
+  top: 40px;
+  height: 100vmax;
+  width: 100%;
+  position: initial;
+  overflow: hidden;
+  scroll-behavior: smooth;
 }
 </style>

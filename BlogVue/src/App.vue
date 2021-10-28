@@ -22,21 +22,14 @@ html,body{
   padding:0;
 }
 #app {
-  background: url("../static/img/bgMain.jpg");
-  background-size: 100% 100%;
-  height: 100vmax;
-  width: 100%;
-  /*position: relative;*/
-  overflow: hidden;
-  scroll-behavior: smooth;
+  /*background: url("../static/img/bgMain.jpg");*/
+  /*background-size: 100% 100%;*/
+  /*height: 100vmax;*/
+  /*width: 100%;*/
+  /*!*position: relative;*!*/
+  /*overflow: hidden;*/
+  /*scroll-behavior: smooth;*/
 
-
-  /*font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
-  /*-webkit-font-smoothing: antialiased;*/
-  /*-moz-osx-font-smoothing: grayscale;*/
-  /*text-align: center;*/
-  /*color: #2c3e50;*/
-  /*margin-top: 60px;*/
 }
 
 
