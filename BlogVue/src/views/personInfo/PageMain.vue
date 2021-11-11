@@ -1,10 +1,7 @@
 <template>
   <!--这个页面用于在页面的主体部分异步显示-->
-
-  <div class="div-wholepage">
-    <div class="indiv">
-
-      <el-container>
+  <el-scrollbar style="height: 100%">
+    <el-container class="el-container1" v-infinite-scroll="load" style="overflow:auto">
         <el-aside width="300px" class="aside">
           <div class="div-leftside">
             <div class="sub-left">
@@ -50,43 +47,15 @@
           </div>
         </el-aside>
 
-        <el-main class="div-main">
-          <!--right===========-->
-          <div class="div-rightside">
-            <div class="sub-right">
+        <el-main class="div-main" >
+            <div class="sub-right infinite-list-item" v-for="i in count">
               <!---->
-              <h1>第一篇文章</h1>
+              <h1>第{{ i }}篇文章</h1>
             </div>
-            <div class="sub-right">
-              <h1>第二篇文章</h1>
-            </div>
-            <div class="sub-right">
-              <h1>第三篇文章</h1>
-            </div>
-            <div class="sub-right">
-              <h1>第四篇文章</h1>
-            </div>
-            <div class="sub-right">
-              <h1>第五篇文章</h1>
-            </div>
-            <div class="sub-right">
-              <h1>第六篇文章</h1>
-            </div>
-            <div class="sub-right">
-              <h1>第四篇文章</h1>
-            </div>
-            <div class="sub-right">
-              <h1>第五篇文章</h1>
-            </div>
-            <div class="sub-right">
-              <h1>第六篇文章</h1>
-            </div>
-          </div>
         </el-main>
-      </el-container>
+    </el-container>
+  </el-scrollbar>
 
-    </div>
-  </div>
 </template>
 
 <script>
@@ -98,25 +67,42 @@ export default {
       url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
       photourl: '../../static/img/MyPhoto.jpg',
       fit: 'fill',
-      currentDate: new Date()
+      currentDate: new Date(),
+      count: 0,
+    }
+  },
+  methods: {
+    load () {
+      var papercount = 15;   // 这个变量是需要从数据库中获取的, 用于在界面中显示的文章摘要的个数
+      if (this.count < papercount){
+        this.count += 1;
+        console.log(this.count)
+
+      }
     }
   }
 }
 </script>
 
-<style scoped>
-.div-wholepage{
-  width: 100%;
+<style >
+/*!*================全局属性===================*!*/
+.el-scrollbar__wrap {
+  /*overflow-x: hidden;*/
 }
-.indiv{
-  position: inherit;
-  background-color: cornsilk;
+.el-container1 {
+  background: #333333;
 }
+/*边侧*/
 .aside{
-  background-color: #B3C0D1;
+  margin: 10px;
 }
+/*右侧*/
 .div-main{
-  background-color: snow;
+  padding-top: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  background: #E9EEF3;
 }
 
 /*================下面是左侧的属性===================*/
@@ -127,6 +113,7 @@ export default {
 }
 .sub-left{
   margin-bottom: 10px;
+  /*background: dimgrey;*/
   background-color: #E9EEF3;
   border-radius: 5px;
   box-shadow: 0 10px 12px 0 rgba(0, 0, 0, 0.1)
@@ -148,6 +135,9 @@ export default {
 
 /*================下面是右侧的属性===================*/
 .sub-right{
+  /*margin: 0;*/
+  margin-left: 10px;
+  margin-right: 10px;
   height: 120px;
   background-color: white;
   border-radius: 5px;
