@@ -1,97 +1,76 @@
 <template>
-  <!--<div id="messageboard">-->
-  <!--  <el-form ref="form" label-width="50px">-->
-  <!--    <el-form-item label="标题">-->
-  <!--      <el-input v-model="title" placeholder="请输入标题"></el-input>-->
-  <!--    </el-form-item>-->
-  <!--    <el-form-item label="内容">-->
-  <!--      <el-input v-model="content" placeholder="请输入内容"></el-input>-->
-  <!--    </el-form-item>-->
-  <!--    <el-form-item>-->
-  <!--      <el-button @click="add()">添加</el-button>-->
-  <!--      <el-button @click="handleReset">重置</el-button>-->
-  <!--    </el-form-item>-->
-  <!--    <el-table border :data="mydata">-->
-  <!--      <el-table-column label="编号" inline-template :context="_self">-->
-  <!--        <span>{{$index+1}}</span>-->
-  <!--      </el-table-column>-->
-  <!--      <el-table-column prop="title" label="标题">-->
-  <!--      </el-table-column>-->
-  <!--      <el-table-column prop="content" label="内容">-->
-  <!--      </el-table-column>-->
-  <!--      <el-table-column label="操作" inline-template :context="_self">-->
-  <!--        <span><el-button size="small" @click="showDialog()">删除</el-button></span>-->
-  <!--      </el-table-column>-->
-  <!--    </el-table>-->
-  <!--    <div style="text-align:right" v-show="mydata.length>0">-->
-  <!--      <el-button size="small" @click="showDelallDialog()">全部删除</el-button>-->
-  <!--    </div>-->
-  <!--  </el-form>-->
+  <el-scrollbar style="height: 100%" >
+    <div id="d1"v-infinite-scroll="load"  style="overflow:auto">
+      <div id="d2">
+        留言：
+        <el-input
+          type="textarea"
+          autosize
+          placeholder="请输入内容"
+          v-model="textarea"
+          clearable>
+        </el-input>
+        <h1>wenzi</h1>
+        <h1>wenzi</h1>
+        <h1>wenzi</h1>
+        <h1>wenzi</h1>
+        <h1>wenzi</h1>
+        <h1>wenzi</h1>
+        <h1>wenzi</h1>
+        <h1>wenzi</h1>
+        <h1>wenzi</h1>
+        <h1>wenzi</h1>
+        <h1>wenzi</h1>
+        <h1>wenzi</h1>
+        <h1>wenzi</h1>
+        <h1>wenzi</h1>
+      </div>
 
-  <!--  <el-dialog title="提示" v-model="dialogVisible" size="tiny">-->
-  <!--    <span v-if="nowIndex==-2">删除全部条留言</span>-->
-  <!--    <span v-else>删除此条留言</span>-->
-  <!--    <span slot="footer" class="dialog-footer">-->
-  <!--        <el-button @click="dialogVisible = false">取 消</el-button>-->
-  <!--        <el-button type="primary" @click="del(nowIndex)" >确 定</el-button>-->
-  <!--      </span>-->
-  <!--  </el-dialog>-->
-  <!--</div>-->
+    </div>
+
+  </el-scrollbar>
 
 </template>
 
 <script>
 export default {
-  name: "MyInfo2",
+  name: "Message",
   data: function() {
     return {
-      //title: '',
-      //content: '',
-      //mydata: [],
-      //dialogVisible: false,
-      //nowIndex: -100,
+      textarea: '',
     }
   },
   methods: {
-    //add() {
-    //  if (this.title == '' || this.content == '') {
-    //    this.$message.error('请填写完整');
-    //  } else {
-    //    this.mydata.push({
-    //      title: this.title,
-    //      content: this.content,
-    //    });
-    //    this.title = '';
-    //    this.content = '';
-    //  }
-    //},
-    //showDialog() {
-    //  this.dialogVisible = true;
-    //},
-    //showDelallDialog() {
-    //  this.dialogVisible = true;
-    //  this.nowIndex = -2;
-    //},
-    //del(n) {
-    //  if (n == -2) {
-    //    this.mydata = [];
-    //  } else {
-    //    this.mydata.splice(n, 1);
-    //  }
-    //  this.nowIndex = -100;
-    //  this.dialogVisible = false;
-    //},
-    //handleReset() {
-    //  this.title = '';
-    //  this.content = '';
-    //}
   }
 }
 </script>
 
 <style scoped>
-.h1{
-  color: darkorange;
+/*下面是整页滚动条的相关属性*/
+::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: lightsteelblue;
+    border-radius: 3px;
+}
+
+/*下面是两个外层div的属性*/
+#d1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+#d2{
+  position: absolute;
+  background: #E9EEF3;
+  top: 0;
+  left: 90px;
+  right: 90px;
 }
 
 </style>
