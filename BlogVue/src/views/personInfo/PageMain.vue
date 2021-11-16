@@ -8,7 +8,7 @@
               <div>
                 <el-image
                   :src="photourl"
-                  :fit="fit" lazy
+                  :fit="fit"
                   class="photoimg"></el-image>
               </div>
               <div class="left-block2">
@@ -64,7 +64,7 @@ export default {
   data() {
     return {
       fits: ['fill', 'contain', 'cover', 'none', 'scale-down'],
-      url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+      //url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
       photourl: '../../static/img/MyPhoto.jpg',
       fit: 'fill',
       currentDate: new Date(),

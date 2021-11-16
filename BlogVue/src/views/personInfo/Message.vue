@@ -1,29 +1,51 @@
 <template>
   <el-scrollbar style="height: 100%" >
-    <div id="d1"v-infinite-scroll="load"  style="overflow:auto">
-      <div id="d2">
-        留言：
-        <el-input
-          type="textarea"
-          autosize
-          placeholder="请输入内容"
-          v-model="textarea"
-          clearable>
-        </el-input>
-        <h1>wenzi</h1>
-        <h1>wenzi</h1>
-        <h1>wenzi</h1>
-        <h1>wenzi</h1>
-        <h1>wenzi</h1>
-        <h1>wenzi</h1>
-        <h1>wenzi</h1>
-        <h1>wenzi</h1>
-        <h1>wenzi</h1>
-        <h1>wenzi</h1>
-        <h1>wenzi</h1>
-        <h1>wenzi</h1>
-        <h1>wenzi</h1>
-        <h1>wenzi</h1>
+    <div id="d1" v-infinite-scroll="load"  style="overflow:auto">
+      <div id="d2" :style="{minHeight: windowHeight}">
+        <!--留言框-->
+        <div id="up">
+          <div id="t1">
+            <el-row>
+              <el-col :span="4">
+                <el-image
+                  style="width: 70px; height: 70px"
+                  :src="photourl"
+                  :fit="fit"
+                  class="photo"
+                  ></el-image>
+              </el-col>
+              <el-col :span="20">
+                <div class="inputline">
+                  <el-input
+                    type="textarea"
+                    autosize
+                    placeholder="留言板..."
+                    v-model="textarea"
+                    clearable
+                    maxlength="300"
+                    show-word-limit
+                    id="input1"
+                  >
+                  </el-input>
+                  <!--按钮组-->
+                  <el-button-group id="up-btn">
+                    <el-button type="primary" class="btn1" icon="el-icon-check" size="mini" @click="submit">发表</el-button>
+                    <el-button type="primary" class="btn1" icon="el-icon-delete" size="mini" @click="clear">清空</el-button>
+                  </el-button-group>
+                </div>
+              </el-col>
+            </el-row>
+          </div>
+        </div>
+
+        <!--新增留言动态显示-->
+        <div>
+          <h1>{{newInsertText}}</h1>
+        </div>
+        <!--历史留言动态显示-->
+        <div></div>
+
+
       </div>
 
     </div>
@@ -35,13 +57,62 @@
 <script>
 export default {
   name: "Message",
-  data: function() {
+  data() {
     return {
-      textarea: '',
+      fit: 'fill',
+      textarea: '',   // 文本框输入的内容
+      photourl: '../../static/img/commonPhoto.jpg',
+      windowWidth: document.documentElement.clientWidth + "px",  //实时屏幕宽度
+      windowHeight: document.documentElement.clientHeight + "px",   //实时屏幕高度
+      newInsertText: "",
     }
   },
   methods: {
-  }
+    load(){
+
+    },
+    submit(){
+      var textarea = this.textarea;
+      if (textarea != ""){
+        // 文本框非空白, 清空文本框,并将文本上传到后端数据库中
+        this.textarea = "";
+        // 上传操作,异步请求
+        // write you code here .....
+        // 上传操作成功后才能将最新的留言显示在页面中
+        this.newInsertText = textarea;
+      }else{
+        // 文本框空白, 按钮失效
+      }
+    },
+    clear(){
+      if(this.textarea != ""){
+        this.textarea = "";
+      }
+    },
+  },
+  // <!--在watch中监听实时宽高-->
+  watch: {
+    windowHeight (val) {
+      let that = this;
+    },
+    windowWidth (val) {
+      let that = this;
+    }
+  },
+
+  mounted() {
+    var that = this;
+    // <!--把window.onresize事件挂在到mounted函数上-->
+    window.onresize = () => {
+      return (() => {
+        window.fullHeight = document.documentElement.clientHeight + "px";
+        window.fullWidth = document.documentElement.clientWidth + "px";
+        that.windowHeight = window.fullHeight;  // 高
+        that.windowWidth = window.fullWidth; // 宽
+      })()
+    };
+  },
+
 }
 </script>
 
@@ -67,10 +138,40 @@ export default {
 }
 #d2{
   position: absolute;
-  background: #E9EEF3;
-  top: 0;
-  left: 90px;
-  right: 90px;
+  background: ghostwhite;
+  left: 110px;
+  right: 110px;
+
+  /*min-height: 1000px;*/
 }
+/*下面是留言框相关的属性*/
+#up{
+  background: whitesmoke;
+}
+/*文本框*/
+#t1{
+  padding: 10px;
+  margin: 10px;
+  margin-top: 0;
+}
+#input1{
+  margin-left: 50px;
+}
+#up-btn{
+  padding-top: 3px;
+  float: right;
+}
+.btn1{
+  border-color: #f9fafc;
+}
+.inputline{
+  padding-top: 10px;
+  padding-right: 20px;
+}
+.photo{
+  border-radius: 4px;
+}
+
+/*下面是历史留言div相关的属性*/
 
 </style>
