@@ -40,12 +40,12 @@
         </div>
 
 
-        <!--新增留言动态显示-->
-        <div id="insert">
+        <!--新增留言动态显示 v-if="photoshow"根据属性状态判断是否显示-->
+        <div id="insert" v-if="photoshow">
           <div class="t1">
             <el-row>
               <el-col :span="4">
-                <el-avatar shape="square" v-if="photoshow"> user </el-avatar>
+                <el-avatar shape="square"> user </el-avatar>
               </el-col>
               <el-col :span="20">
                 <div class="inputline">
@@ -55,17 +55,15 @@
                 </div>
               </el-col>
             </el-row>
-            <el-divider class="divdier-line" v-if="photoshow"></el-divider>
-
+            <el-divider class="divdier-line"></el-divider>
           </div>
-
 
         </div>
 
 
         <!--历史留言动态显示-->
         <div>
-          <h1></h1>
+          <h1>v3e3v </h1>
         </div>
 
 
@@ -205,7 +203,7 @@ export default {
   border-radius: 4px;
 }
 
-/*下面是新增及历史留言div相关的属性*/
+/*下面是新增留言div相关的属性*/
 #insert{
   /*background: blueviolet;*/
 }
@@ -213,5 +211,8 @@ export default {
   margin: 0 0;
   width: 100%;
 }
+
+
+/*历史留言部分属性*/
 
 </style>
