@@ -91,6 +91,16 @@ export default {
       userip: "",
       useraddress: "",
       photoshow: false,
+      historyMessages: {
+        eachMessage: {
+          ip: "",
+          address: "",
+          text: "",
+          id: ""
+        }
+
+      },
+
     }
   },
   methods: {
