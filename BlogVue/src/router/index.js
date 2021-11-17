@@ -1,6 +1,8 @@
 // 1.导入 vue 和 router 包
 import Vue from 'vue'
 import Router from 'vue-router'
+
+
 // 2.导入需要跳转连接的vue组件,需要哪个导入哪个
 import Main from '../views/Main'
 import Login from '../views/Login'

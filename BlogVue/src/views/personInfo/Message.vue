@@ -4,9 +4,9 @@
       <div id="d2" :style="{minHeight: windowHeight}">
         <!--留言框-->
         <div id="up">
-          <div id="t1">
+          <div class="t1">
             <el-row>
-              <el-col :span="4">
+              <el-col :span="3">
                 <el-image
                   style="width: 70px; height: 70px"
                   :src="photourl"
@@ -14,7 +14,7 @@
                   class="photo"
                   ></el-image>
               </el-col>
-              <el-col :span="20">
+              <el-col :span="21">
                 <div class="inputline">
                   <el-input
                     type="textarea"
@@ -36,14 +36,37 @@
               </el-col>
             </el-row>
           </div>
+          <!--<el-divider class="divdier-line"></el-divider>-->
         </div>
 
+
         <!--新增留言动态显示-->
-        <div>
-          <h1>{{newInsertText}}</h1>
+        <div id="insert">
+          <div class="t1">
+            <el-row>
+              <el-col :span="4">
+                <el-avatar shape="square" v-if="photoshow"> user </el-avatar>
+              </el-col>
+              <el-col :span="20">
+                <div class="inputline">
+                  <p>{{newInsertText}}</p>
+                  <span>{{userip}}</span>
+                  <span>{{useraddress}}</span>
+                </div>
+              </el-col>
+            </el-row>
+            <el-divider class="divdier-line" v-if="photoshow"></el-divider>
+
+          </div>
+
+
         </div>
+
+
         <!--历史留言动态显示-->
-        <div></div>
+        <div>
+          <h1></h1>
+        </div>
 
 
       </div>
@@ -53,6 +76,7 @@
   </el-scrollbar>
 
 </template>
+
 
 <script>
 export default {
@@ -64,7 +88,11 @@ export default {
       photourl: '../../static/img/commonPhoto.jpg',
       windowWidth: document.documentElement.clientWidth + "px",  //实时屏幕宽度
       windowHeight: document.documentElement.clientHeight + "px",   //实时屏幕高度
+      // 留言板文本,IP,用户国内地址
       newInsertText: "",
+      userip: "",
+      useraddress: "",
+      photoshow: false,
     }
   },
   methods: {
@@ -72,14 +100,17 @@ export default {
 
     },
     submit(){
-      var textarea = this.textarea;
-      if (textarea != ""){
-        // 文本框非空白, 清空文本框,并将文本上传到后端数据库中
-        this.textarea = "";
+      if (this.textarea != ""){
         // 上传操作,异步请求
         // write you code here .....
         // 上传操作成功后才能将最新的留言显示在页面中
-        this.newInsertText = textarea;
+        this.newInsertText = this.textarea;      //显示在div中的文本
+        this.userip = returnCitySN['cip'];       //留言用户的IP地址
+        this.useraddress = returnCitySN["cname"] //留言用户的国内地址
+        // 文本框非空白, 清空文本框,并将文本上传到后端数据库中
+        this.textarea = "";                      //将留言板清空
+        // 插入留言的图像是否显示
+        this.photoshow = true;
       }else{
         // 文本框空白, 按钮失效
       }
@@ -116,6 +147,10 @@ export default {
 }
 </script>
 
+
+
+
+
 <style scoped>
 /*下面是整页滚动条的相关属性*/
 ::-webkit-scrollbar {
@@ -139,17 +174,15 @@ export default {
 #d2{
   position: absolute;
   background: ghostwhite;
-  left: 110px;
-  right: 110px;
-
-  /*min-height: 1000px;*/
+  left: 140px;
+  right: 140px;
 }
 /*下面是留言框相关的属性*/
 #up{
   background: whitesmoke;
 }
 /*文本框*/
-#t1{
+.t1{
   padding: 10px;
   margin: 10px;
   margin-top: 0;
@@ -172,6 +205,13 @@ export default {
   border-radius: 4px;
 }
 
-/*下面是历史留言div相关的属性*/
+/*下面是新增及历史留言div相关的属性*/
+#insert{
+  /*background: blueviolet;*/
+}
+.divdier-line{
+  margin: 0 0;
+  width: 100%;
+}
 
 </style>
