@@ -38,43 +38,63 @@
           </div>
           <!--<el-divider class="divdier-line"></el-divider>-->
         </div>
+        <el-divider class="divdier-line"></el-divider>
 
 
         <!--新增留言动态显示 v-if="photoshow"根据属性状态判断是否显示-->
-        <div id="insert" v-if="photoshow">
-          <div class="t1">
+        <div v-if="photoshow">
             <el-row>
-              <el-col :span="4">
-                <el-avatar shape="square"> user </el-avatar>
+              <!--左侧的留言用户头像-->
+              <el-col :span="3" >
+                <el-avatar shape="square" class="avatar"> user </el-avatar>
               </el-col>
-              <el-col :span="20">
-                <div class="inputline">
-                  <p>{{newInsertText}}</p>
-                  <span>{{userip}}</span>
-                  <span>{{useraddress}}</span>
+              <el-col :span="21">
+                <div class="messline">
+                  <div class="down-text">
+                    {{newInsertText}}
+                  </div>
+                  <div class="down-ip-addr">
+                    <span>发布时间:{{pubtime}}&nbsp;</span>
+                    <span>用户IP:{{userip}}&nbsp;</span>
+                    <span>{{useraddress}}</span>
+                  </div>
                 </div>
               </el-col>
             </el-row>
             <el-divider class="divdier-line"></el-divider>
-          </div>
-
         </div>
 
 
-        <!--历史留言动态显示-->
-        <div>
-          <h1>v3e3v </h1>
+        <!--历史留言动态显示:有留言才显示-->
+        <div v-if="historyshow" v-for="(eachHistory, index) in historyMessages">
+            <el-row>
+              <!--左侧的留言用户头像-->
+              <el-col :span="3" >
+                <el-avatar shape="square" class="avatar"> u{{index}} </el-avatar>
+              </el-col>
+              <el-col :span="21">
+                <div class="messline">
+                  <div class="down-text">
+                    {{eachHistory.history_text}}
+                  </div>
+                  <div class="down-ip-addr">
+                    <span>发布时间:{{pubtime}}&nbsp;</span>
+                    <span>用户IP:{{eachHistory.history_ip}}&nbsp;</span>
+                    <span>{{eachHistory.history_addr}}</span>
+                  </div>
+                </div>
+              </el-col>
+            </el-row>
+            <el-divider class="divdier-line"></el-divider>
         </div>
 
 
       </div>
-
     </div>
 
   </el-scrollbar>
 
 </template>
-
 
 <script>
 export default {
@@ -87,19 +107,41 @@ export default {
       windowWidth: document.documentElement.clientWidth + "px",  //实时屏幕宽度
       windowHeight: document.documentElement.clientHeight + "px",   //实时屏幕高度
       // 留言板文本,IP,用户国内地址
+
+      // 新增留言中的对象
       newInsertText: "",
       userip: "",
       useraddress: "",
+      pubtime: "2021.11.18.20:04",
       photoshow: false,
-      historyMessages: {
-        eachMessage: {
-          ip: "",
-          address: "",
-          text: "",
-          id: ""
-        }
 
-      },
+      // 历史留言中的对象
+      historyshow: false,
+      historyMessages: [
+        {
+          history_ip: 132,
+          history_addr: "国内",
+          history_text: "文本1",
+          history_time: "发布时间"
+        },{
+          history_ip: 133,
+          history_addr: "国内",
+          history_text: "文本2",
+          history_time: "发布时间"
+        },
+        {
+          history_ip: 134,
+          history_addr: "国内",
+          history_text: "文本3",
+          history_time: "发布时间"
+        },{
+          history_ip: 135,
+          history_addr: "国内",
+          history_text: "文本4",
+          history_time: "发布时间"
+        }
+      ],
+
 
     }
   },
@@ -151,12 +193,16 @@ export default {
       })()
     };
   },
+  created() {
+    // 在html渲染的时候调用这个钩子, 获取历史用户留言数据
+    if (this.historyMessages.length > 0){
+      this.historyshow = true;
+    }
+
+  }
 
 }
 </script>
-
-
-
 
 
 <style scoped>
@@ -194,6 +240,7 @@ export default {
   padding: 10px;
   margin: 10px;
   margin-top: 0;
+  margin-bottom: 0;
 }
 #input1{
   margin-left: 50px;
@@ -214,15 +261,29 @@ export default {
 }
 
 /*下面是新增留言div相关的属性*/
-#insert{
-  /*background: blueviolet;*/
-}
 .divdier-line{
   margin: 0 0;
   width: 100%;
 }
 
-
 /*历史留言部分属性*/
+.avatar{
+  margin: 5px 0 5px 35px;
+}
+.messline{
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 45px;
+}
+.down-text{
+  font-size: 16px;
+}
+.down-ip-addr{
+  float: right;
+  padding-top: 5px;
+  margin-bottom: 5px;
+  color: #999999;
+  font-size: 12px;
+}
 
 </style>
