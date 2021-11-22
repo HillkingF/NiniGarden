@@ -1,5 +1,5 @@
 <template>
-  <el-scrollbar style="height: 100%" >
+  <el-scrollbar style="height: 100%; width: 100%" :style="{minWidth: '560px'}">
     <!--Left-div-->
     <div class="area-div div-left" style="background: lemonchiffon" :style="{minHeight: windowHeight}">
       <el-card class="box-card-left" :body-style="{ padding: '5px' }">
@@ -12,40 +12,45 @@
           ref="multipleTable"
           :data="tableData"
           tooltip-effect="dark"
-          style="width: 100%"
           size="mini"
+          class="el-table1"
           @selection-change="handleSelectionChange">
           <el-table-column
             type="index"
-            width="10">
+            width="30"
+            class="table1"
+          >
           </el-table-column>
           <el-table-column
             type="selection"
-            width="40">
+            width="50"
+          >
           </el-table-column>
           <el-table-column
             prop="musicName"
             label="歌名"
             width="80"
-            show-overflow-tooltip>
+            show-overflow-tooltip
+          >
           </el-table-column>
           <el-table-column
-            prop="musicName"
+            prop="singerName"
             label="歌手名"
             width="60"
-            show-overflow-tooltip>
+            show-overflow-tooltip
+          >
           </el-table-column>
         </el-table>
       </el-card>
     </div>
 
     <!--Middle-div-->
-    <div class="area-div div-middle" style="background: white" :style="{minHeight: windowHeight, width: windowWidth}">
+    <div class="area-div div-middle" style="background: white" :style="{minHeight: windowHeight,width: windowWidth,  minWidth: '100px'}">
       <h2>bb</h2>
     </div>
 
     <!--Right-div-->
-    <div class="area-div div-right" style="background: lemonchiffon" :style="{minHeight: windowHeight}">
+    <div class="area-div" style="background: lemonchiffon" :style="{minHeight: windowHeight, right: '0px', width: '240px'}">
       <h3>cc</h3>
     </div>
   </el-scrollbar>
@@ -56,28 +61,69 @@ export default {
   name: "Amusement",
   data() {
     return {
+      asideWidth: 480,
       windowHeight: document.documentElement.clientHeight + "px",
-      windowWidth: (document.documentElement.clientWidth - 460) + "px",
+      windowWidth: (document.documentElement.clientWidth - 480) + "px",
+
       // 左侧div的属性
       photourl: '../../static/img/music.jpg',
       fit: 'fill',
       tableData: [{
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
+        musicName: '大鱼',
+        singerName: '周深'
       }, {
-        date: '2016-05-04',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1517 弄'
+        musicName: '大鱼',
+        singerName: '周深'
       }, {
-        date: '2016-05-01',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1519 弄'
+        musicName: '大鱼',
+        singerName: '周深'
+      },{
+        musicName: '大鱼',
+        singerName: '周深'
       }, {
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1516 弄'
-      }],
+        musicName: '大鱼',
+        singerName: '周深'
+      }, {
+        musicName: '大鱼',
+        singerName: '周深'
+      },{
+        musicName: '大鱼',
+        singerName: '周深'
+      }, {
+        musicName: '大鱼',
+        singerName: '周深'
+      }, {
+        musicName: '大鱼',
+        singerName: '周深'
+      },{
+        musicName: '大鱼',
+        singerName: '周深'
+      }, {
+        musicName: '大鱼',
+        singerName: '周深'
+      }, {
+        musicName: '大鱼',
+        singerName: '周深'
+      },{
+        musicName: '大鱼',
+        singerName: '周深'
+      }, {
+        musicName: '大鱼',
+        singerName: '周深'
+      }, {
+        musicName: '大鱼',
+        singerName: '周深'
+      },{
+        musicName: '大鱼',
+        singerName: '周深'
+      }, {
+        musicName: '大鱼',
+        singerName: '周深'
+      }, {
+        musicName: '大鱼',
+        singerName: '周深'
+      }
+      ],
     }
   },
   // <!--在watch中监听实时宽高-->
@@ -96,7 +142,7 @@ export default {
     window.onresize = () => {
       return (() => {
         window.fullHeight = document.documentElement.clientHeight + "px";
-        window.fullWidth = (document.documentElement.clientWidth - 460) + "px";
+        window.fullWidth = (document.documentElement.clientWidth - this.asideWidth) + "px";
         that.windowHeight = window.fullHeight;  // 高
         that.windowWidth = window.fullWidth;  // 高
       })()
@@ -113,7 +159,7 @@ export default {
 .div-left{
   left: 0;
   float: left;
-  width: 230px;
+  width: 240px;
 }
 .div-middle{
   float: left;
@@ -121,13 +167,34 @@ export default {
 .div-right{
   float: left;
   right: 0;
-  width: 230px;
+  width: 240px;
 }
 
 /*===========左侧的div================*/
 .box-card-left {
   margin: 10px;
-  padding: 0;
+  margin-top: 5px;
+}
+.el-table1{
+  margin-top: 5px;
+}
+
+
+</style>
+
+<!--下面的style是用来修改element-ui默认值的-->
+<style>
+.el-table--mini .el-table__cell {
+  padding: 0 0;
+}
+.el-table td.el-table__cell, .el-table th.el-table__cell.is-leaf {
+  border-bottom: 0px solid #EBEEF5;
+}
+.el-table--mini, .el-table--small, .el-table__expand-icon {
+  font-size: 6px;
+}
+.el-table .cell, .el-table--border .el-table__cell:first-child .cell {
+  padding-left: 5px;
 }
 
 </style>
