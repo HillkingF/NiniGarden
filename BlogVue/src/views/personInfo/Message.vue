@@ -150,13 +150,13 @@ export default {
 
     },
     submit(){
-      if (this.textarea != ""){
+      if (this.textarea !== ""){
         // 上传操作,异步请求
         // write you code here .....
         // 上传操作成功后才能将最新的留言显示在页面中
         this.newInsertText = this.textarea;      //显示在div中的文本
         this.userip = returnCitySN['cip'];       //留言用户的IP地址
-        this.useraddress = returnCitySN["cname"] //留言用户的国内地址
+        this.useraddress = returnCitySN['cname'] //留言用户的国内地址
         // 文本框非空白, 清空文本框,并将文本上传到后端数据库中
         this.textarea = "";                      //将留言板清空
         // 插入留言的图像是否显示
@@ -166,7 +166,7 @@ export default {
       }
     },
     clear(){
-      if(this.textarea != ""){
+      if(this.textarea !== ""){
         this.textarea = "";
       }
     },
@@ -238,7 +238,8 @@ export default {
 /*文本框*/
 .t1{
   padding: 10px;
-  margin: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -276,7 +277,7 @@ export default {
   padding-right: 45px;
 }
 .down-text{
-  font-size: 16px;
+  font-size: 12px;
 }
 .down-ip-addr{
   float: right;
