@@ -2,11 +2,11 @@
   <el-scrollbar style="height: 100%; width: 100%" :style="{minWidth: '560px'}">
     <!--Left-div-->
     <div class="area-div div-left" style="background: lemonchiffon" :style="{minHeight: windowHeight}">
-      <el-card class="box-card-left" :body-style="{ padding: '5px' }">
+      <el-card class="box-card-left" :body-style="{ padding: '5px' }" >
         <el-image
           :src="photourl"
           :fit="fit"
-          style="{ padding: 0px}"
+          style="{ padding: 0}"
           ></el-image>
         <el-table
           ref="multipleTable"
@@ -14,7 +14,8 @@
           tooltip-effect="dark"
           size="mini"
           class="el-table1"
-          @selection-change="handleSelectionChange">
+          :style="{maxHheight: (windowHeight-60)+'px'}"
+        >
           <el-table-column
             type="index"
             width="30"
@@ -22,14 +23,9 @@
           >
           </el-table-column>
           <el-table-column
-            type="selection"
-            width="50"
-          >
-          </el-table-column>
-          <el-table-column
             prop="musicName"
             label="歌名"
-            width="80"
+            width="70"
             show-overflow-tooltip
           >
           </el-table-column>
@@ -45,18 +41,19 @@
     </div>
 
     <!--Middle-div-->
-    <div class="area-div div-middle" style="background: white" :style="{minHeight: windowHeight,width: windowWidth,  minWidth: '100px'}">
+    <div class="area-div div-middle" style="background: white" :style="{minHeight: windowHeight, width: windowWidth,  minWidth: '100px'}">
       <h2>bb</h2>
     </div>
 
     <!--Right-div-->
-    <div class="area-div" style="background: lemonchiffon" :style="{minHeight: windowHeight, right: '0px', width: '240px'}">
+    <div class="area-div" style="background: lemonchiffon" :style="{minHeight:windowHeight, right: '0px', width: '240px'}">
       <h3>cc</h3>
     </div>
   </el-scrollbar>
 </template>
 
 <script>
+
 export default {
   name: "Amusement",
   data() {
@@ -133,7 +130,7 @@ export default {
     },
     windowWidth (val) {
       let that = this;
-    }
+    },
   },
 
   mounted() {
