@@ -74,7 +74,7 @@ export default {
       var papercount = 15;   // 这个变量是需要从数据库中获取的, 用于在界面中显示的文章摘要的个数
       if (this.count < papercount){
         this.count += 1;
-        console.log(this.count)
+        //console.log(this.count)
 
       }
     }

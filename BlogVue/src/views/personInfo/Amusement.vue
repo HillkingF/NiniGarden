@@ -1,7 +1,8 @@
 <template>
   <el-scrollbar style="height: 100%; width: 100%" :style="{minWidth: '560px'}">
+    <div style="width: 100%; overflow-x: hidden; background: azure; left: 0; right: 0" :style=" {minHeight: windowHeight}">
     <!--Left-div-->
-    <div class="area-div div-left" style="background: lemonchiffon" :style="{minHeight: windowHeight}">
+    <div class="area-div div-left" style="background: lemonchiffon; width: 240px; left: 0" :style="{minHeight: windowHeight}">
       <el-card class="box-card-left" :body-style="{ padding: '5px' }" >
         <el-image
           :src="photourl"
@@ -14,6 +15,7 @@
           tooltip-effect="dark"
           size="mini"
           class="el-table1"
+          @row-click="rowclick"
           :style="{maxHheight: (windowHeight-60)+'px'}"
         >
           <el-table-column
@@ -23,6 +25,7 @@
           >
           </el-table-column>
           <el-table-column
+            type=""
             prop="musicName"
             label="歌名"
             width="70"
@@ -41,13 +44,17 @@
     </div>
 
     <!--Middle-div-->
-    <div class="area-div div-middle" style="background: white" :style="{minHeight: windowHeight, width: windowWidth,  minWidth: '100px'}">
-      <h2>bb</h2>
+    <div class="area-div div-middle" style="background: white" :style="{minHeight: windowHeight,  width: windowWidth,  minWidth: '100px'}">
+      <h2>{{musicrow}}</h2>
+
+
+
     </div>
 
     <!--Right-div-->
-    <div class="area-div" style="background: lemonchiffon" :style="{minHeight:windowHeight, right: '0px', width: '240px'}">
+    <div class="area-div" style="background: lemonchiffon; right: 0; width: 240px; position: fixed" :style="{minHeight:windowHeight}">
       <h3>cc</h3>
+    </div>
     </div>
   </el-scrollbar>
 </template>
@@ -65,35 +72,36 @@ export default {
       // 左侧div的属性
       photourl: '../../static/img/music.jpg',
       fit: 'fill',
-      tableData: [{
-        musicName: '大鱼',
+      tableData: [
+        {
+        musicName: '大鱼1',
         singerName: '周深'
       }, {
-        musicName: '大鱼',
+        musicName: '大鱼2',
         singerName: '周深'
       }, {
-        musicName: '大鱼',
+        musicName: '大鱼3',
         singerName: '周深'
       },{
-        musicName: '大鱼',
+        musicName: '大鱼4',
         singerName: '周深'
       }, {
-        musicName: '大鱼',
+        musicName: '大鱼5',
         singerName: '周深'
       }, {
-        musicName: '大鱼',
+        musicName: '大鱼6',
         singerName: '周深'
       },{
-        musicName: '大鱼',
+        musicName: '大鱼7',
         singerName: '周深'
       }, {
-        musicName: '大鱼',
+        musicName: '大鱼8',
         singerName: '周深'
       }, {
-        musicName: '大鱼',
+        musicName: '大鱼9',
         singerName: '周深'
       },{
-        musicName: '大鱼',
+        musicName: '大鱼10',
         singerName: '周深'
       }, {
         musicName: '大鱼',
@@ -121,7 +129,15 @@ export default {
         singerName: '周深'
       }
       ],
+      musicrow: '',
     }
+  },
+  methods: {
+    rowclick(val){
+      // 获取点击的行的歌名和歌手名
+      this.musicrow = val.musicName;
+    }
+
   },
   // <!--在watch中监听实时宽高-->
   watch: {
@@ -175,6 +191,9 @@ export default {
 .el-table1{
   margin-top: 5px;
 }
+/*.el-table--mini .el-table__cell {*/
+/*  padding: 0 0;*/
+/*}*/
 
 
 </style>
@@ -193,6 +212,8 @@ export default {
 .el-table .cell, .el-table--border .el-table__cell:first-child .cell {
   padding-left: 5px;
 }
-
+.el-scrollbar .el-scrollbar__warp{
+  overflow-x: hidden;
+}
 </style>
 
